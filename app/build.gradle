@@ -87,11 +87,9 @@ dependencies {
     //GSON dependency
     implementation "com.google.code.gson:gson:$gsonVersion"
 
-    //Dagger core dependency
+    //Dagger dependency
     implementation "com.google.dagger:dagger:$daggerVersion"
-    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
-
-    //Dagger android dependency
     implementation "com.google.dagger:dagger-android:$daggerVersion"
     kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
+    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
 }

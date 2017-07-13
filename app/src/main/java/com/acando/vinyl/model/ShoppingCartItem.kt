@@ -4,7 +4,7 @@ import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
 
 @Entity(tableName = "shopping_cart")
-class ShoppingCart {
+class ShoppingCartItem {
 
     @PrimaryKey
     var id: Int = 0

@@ -1,18 +1,21 @@
 package com.acando.vinyl.db
 
-import android.arch.persistence.room.Dao
 import android.arch.lifecycle.LiveData
-import android.arch.persistence.room.Insert
-import android.arch.persistence.room.OnConflictStrategy
-import android.arch.persistence.room.Query
-import com.acando.vinyl.model.ShoppingCart
+import android.arch.persistence.room.*
+import com.acando.vinyl.model.ShoppingCartItem
 
 @Dao
 interface ShoppingCartDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(shoppingCart: ShoppingCart)
+    fun insert(shoppingCartItem: ShoppingCartItem)
 
     @Query("SELECT * FROM shopping_cart")
-    fun loadAll(): LiveData<ShoppingCart>
+    fun loadAll(): LiveData<List<ShoppingCartItem>>
+
+    @Query("DELETE FROM shopping_cart")
+    fun deleteAll()
+
+    @Delete
+    fun delete(shoppingCartItem: ShoppingCartItem)
 }

@@ -11,8 +11,8 @@ import com.acando.vinyl.model.Article
 interface ArticleDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(articles : List<Article>)
+    fun insert(article : Article)
 
     @Query("SELECT * FROM articles")
-    fun loadAll(): LiveData<Article>
+    fun loadAll(): LiveData<List<Article>>
 }

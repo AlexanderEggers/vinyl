@@ -1,15 +1,14 @@
 package com.acando.vinyl.ui.overview
 
-import com.acando.vinyl.arch.VinylLifecycleFragment
+import android.arch.lifecycle.LifecycleFragment
 import android.arch.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import javax.inject.Inject
-import android.arch.lifecycle.ViewModelProviders
 
-class OverviewFragment : VinylLifecycleFragment() {
+class OverviewFragment : LifecycleFragment() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
