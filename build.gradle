@@ -8,8 +8,8 @@ buildscript {
         espressoVersion = "2.2.2"
         junitVersion = "4.12"
 
-        archLifecycleVersion = "1.0.0-alpha3"
-        archRoomVersion = "1.0.0-alpha3"
+        archLifecycleVersion = "1.0.0-alpha5"
+        archRoomVersion = "1.0.0-alpha5"
         supportLibVersion = "26.0.0-beta2"
         daggerVersion = "2.11"
         gsonVersion = "2.8.1"
@@ -22,7 +22,7 @@ buildscript {
     }
 
     dependencies {
-        classpath "com.android.tools.build:gradle:$gradleVersion"
+        classpath 'com.android.tools.build:gradle:3.0.0-alpha7'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
