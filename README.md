@@ -1,3 +1,0 @@
-# vinyl
-
-- [ ] test
