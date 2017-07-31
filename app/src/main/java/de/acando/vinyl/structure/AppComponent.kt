@@ -1,12 +1,12 @@
 package de.acando.vinyl.structure
 
 import android.app.Application
-import de.acando.vinyl.MainActivity
 import de.acando.vinyl.ui.detail.DetailFragment
 import de.acando.vinyl.ui.overview.OverviewFragment
 import de.acando.vinyl.ui.shoppingcart.ShoppingCartFragment
 import dagger.BindsInstance
 import dagger.Component
+import de.acando.vinyl.MainActivity
 import javax.inject.Singleton
 
 @Singleton
