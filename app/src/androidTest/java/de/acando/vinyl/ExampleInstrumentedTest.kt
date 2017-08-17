@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getTargetContext()
-        assertEquals("de.acando.vinyl", appContext.packageName)
+        assertEquals("de.acando.vinly", appContext.packageName)
     }
 }
