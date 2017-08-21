@@ -6,6 +6,7 @@ import android.arch.persistence.room.Room
 import android.content.Context
 import dagger.Provides
 import android.arch.lifecycle.ViewModelProvider
+import android.os.Debug
 import de.acando.vinyl.MainActivity
 import de.acando.vinyl.db.AppDatabase
 import de.acando.vinyl.db.ArticleDao
@@ -18,7 +19,12 @@ class AppModule {
     @Singleton
     @Provides
     fun provideDb(context: Context): AppDatabase {
-        return Room.databaseBuilder(context, AppDatabase::class.java, AppDatabase.DATABASE_NAME).build()
+        val builder = Room.databaseBuilder(context, AppDatabase::class.java, AppDatabase.DATABASE_NAME)
+                .fallbackToDestructiveMigration()
+        if(Debug.isDebuggerConnected()) {
+            builder.allowMainThreadQueries()
+        }
+        return builder.build()
     }
 
     @Singleton
