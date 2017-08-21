@@ -3,33 +3,49 @@ package de.acando.vinyl.model
 import android.arch.persistence.room.ColumnInfo
 import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
+import android.support.annotation.NonNull
 import com.google.gson.annotations.SerializedName
 
-@Entity(tableName = "articles")
+@Entity(tableName = "article_entries")
 class Article {
 
     @PrimaryKey
+    @ColumnInfo(name = "id")
     @SerializedName("articleId")
     var id: Int = 0
 
+    @ColumnInfo(name = "album")
     @SerializedName("album")
-    var album: String? = null
+    @NonNull
+    var album: String = ""
+
+    @ColumnInfo(name = "genre_id")
+    @SerializedName("genreId")
+    @NonNull
+    var genreId: Int = 0
 
     @ColumnInfo(name = "vote_average")
     @SerializedName("voteAverage")
-    var voteAverage: Float = 0.toFloat()
+    @NonNull
+    var voteAverage: Float = 0f
 
+    @ColumnInfo(name = "price")
     @SerializedName("price")
-    var price: Float = 0.toFloat()
+    @NonNull
+    var price: Float = 0f
 
+    @ColumnInfo(name = "release")
     @SerializedName("release")
+    @NonNull
     var release: Int = 0
 
-    @ColumnInfo(name = "band")
     @SerializedName("band")
-    var band: String? = null
+    @ColumnInfo(name = "band")
+    @NonNull
+    var band: String = ""
 
-    @SerializedName("coverImage")
     @ColumnInfo(name = "cover_image")
-    var coverImage: Int = 0
+    @SerializedName("coverImage")
+    @NonNull
+    var coverImage: String = ""
 }

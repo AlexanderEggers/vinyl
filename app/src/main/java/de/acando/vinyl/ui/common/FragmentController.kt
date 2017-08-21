@@ -16,6 +16,7 @@ class FragmentController @Inject constructor() {
     private val OVERVIEW_FRAGMENT = "OverviewFragment"
     private val DETAIL_FRAGMENT = "DetailFragment"
     private val SHOPPING_CART_FRAGMENT = "ShoppingCartFragment"
+    private val GENRE_FRAGMENT = "GenreFragment"
 
     private val containerId: Int = R.id.content_area
     private var fragmentManager: FragmentManager? = null
@@ -28,28 +29,33 @@ class FragmentController @Inject constructor() {
 
     fun navigateToOverview() {
         val appStartFragment = OverviewFragment()
-        showFragment(appStartFragment, OVERVIEW_FRAGMENT, OVERVIEW_FRAGMENT)
+        showFragment(appStartFragment, OVERVIEW_FRAGMENT, true)
     }
 
     fun navigateToDetail(id : Int) {
         val appStartFragment = DetailFragment().forItem(id)
-        showFragment(appStartFragment, DETAIL_FRAGMENT, DETAIL_FRAGMENT)
+        showFragment(appStartFragment, DETAIL_FRAGMENT, true)
+    }
+
+    fun navigateToGenre(id : Int) {
+        val appStartFragment = DetailFragment().forItem(id)
+        showFragment(appStartFragment, GENRE_FRAGMENT, true)
     }
 
     fun navigateToShoppingCart() {
         val appStartFragment = OverviewFragment()
-        showFragment(appStartFragment, SHOPPING_CART_FRAGMENT, SHOPPING_CART_FRAGMENT)
+        showFragment(appStartFragment, SHOPPING_CART_FRAGMENT, true)
     }
 
-    fun showFragment(fragment : Fragment, tag : String?, backStackTag : String?) {
-        val ft = fragmentManager?.beginTransaction()!!
+    fun showFragment(fragment : Fragment, tag : String?, addToBackstack : Boolean) {
+        val ft = fragmentManager?.beginTransaction()
 
-        if (backStackTag != null) {
-            ft.addToBackStack(backStackTag)
+        if (addToBackstack) {
+            ft!!.addToBackStack(tag)
         }
 
-        ft.replace(containerId, fragment, tag)
+        ft!!.replace(containerId, fragment, tag)
         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-        ft.commit();
+        ft.commit()
     }
 }

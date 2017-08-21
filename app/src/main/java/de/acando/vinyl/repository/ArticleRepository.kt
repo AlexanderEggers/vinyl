@@ -11,7 +11,7 @@ import javax.inject.Singleton
 class ArticleRepository @Inject constructor(private val articleDao: ArticleDao,
                                             private val appExecutor: AppExecutor) {
 
-    fun insertItem(articles : List<Article>) {
+    fun insertArticle(articles : List<Article>) {
         appExecutor.diskIO().execute {
             articles.forEach {
                 articleDao.insert(it)
@@ -19,7 +19,15 @@ class ArticleRepository @Inject constructor(private val articleDao: ArticleDao,
         }
     }
 
-    fun getAllShoppingCartItems() : LiveData<List<Article>> {
+    fun getAll() : LiveData<List<Article>> {
         return articleDao.loadAll()
+    }
+
+    fun getAll(genreId : Int) : LiveData<List<Article>> {
+        return articleDao.loadAll(genreId)
+    }
+
+    fun getAll(itemIds : List<Int>) : LiveData<List<Article>> {
+        return articleDao.loadAll(itemIds)
     }
 }

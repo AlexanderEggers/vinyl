@@ -5,10 +5,10 @@ import javax.inject.Singleton
 import android.arch.persistence.room.Room
 import android.content.Context
 import dagger.Provides
-import de.acando.vinyl.db.ArticleDao
 import android.arch.lifecycle.ViewModelProvider
 import de.acando.vinyl.MainActivity
 import de.acando.vinyl.db.AppDatabase
+import de.acando.vinyl.db.ArticleDao
 import de.acando.vinyl.db.ShoppingCartDao
 import de.acando.vinyl.viewmodel.AppViewModelFactory
 

@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "27380e3778c23ac81ff309fca0bd8094",
+    "identityHash": "122f0de9a12b24b2806a935207878baa",
     "entities": [
       {
-        "tableName": "articles",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `album` TEXT, `vote_average` REAL NOT NULL, `price` REAL NOT NULL, `release` INTEGER NOT NULL, `band` TEXT, `cover_image` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "tableName": "article_entries",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `album` TEXT NOT NULL, `genre_id` INTEGER NOT NULL, `vote_average` REAL NOT NULL, `price` REAL NOT NULL, `release` INTEGER NOT NULL, `band` TEXT NOT NULL, `cover_image` TEXT NOT NULL, PRIMARY KEY(`id`))",
         "fields": [
           {
             "fieldPath": "id",
@@ -18,7 +18,13 @@
             "fieldPath": "album",
             "columnName": "album",
             "affinity": "TEXT",
-            "notNull": false
+            "notNull": true
+          },
+          {
+            "fieldPath": "genreId",
+            "columnName": "genre_id",
+            "affinity": "INTEGER",
+            "notNull": true
           },
           {
             "fieldPath": "voteAverage",
@@ -42,12 +48,50 @@
             "fieldPath": "band",
             "columnName": "band",
             "affinity": "TEXT",
-            "notNull": false
+            "notNull": true
           },
           {
             "fieldPath": "coverImage",
             "columnName": "cover_image",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "genre_entries",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `name` TEXT NOT NULL, `list_image` TEXT NOT NULL, `cover_image` TEXT NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
             "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "listImage",
+            "columnName": "list_image",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "coverImage",
+            "columnName": "cover_image",
+            "affinity": "TEXT",
             "notNull": true
           }
         ],
@@ -62,7 +106,7 @@
       },
       {
         "tableName": "shopping_cart",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `itemId` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `item_id` INTEGER NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -72,7 +116,7 @@
           },
           {
             "fieldPath": "itemId",
-            "columnName": "itemId",
+            "columnName": "item_id",
             "affinity": "INTEGER",
             "notNull": true
           }
@@ -81,7 +125,7 @@
           "columnNames": [
             "id"
           ],
-          "autoGenerate": false
+          "autoGenerate": true
         },
         "indices": [],
         "foreignKeys": []
@@ -89,7 +133,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"27380e3778c23ac81ff309fca0bd8094\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"122f0de9a12b24b2806a935207878baa\")"
     ]
   }
 }

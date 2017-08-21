@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentManager
 import de.acando.vinyl.MainActivity
 import de.acando.vinyl.VinylApp
 import de.acando.vinyl.ui.detail.DetailFragment
+import de.acando.vinyl.ui.genre.GenreFragment
 import de.acando.vinyl.ui.overview.OverviewFragment
 import de.acando.vinyl.ui.shoppingcart.ShoppingCartFragment
 
@@ -59,6 +60,8 @@ class AppInjector {
                                 appComponent.inject(f)
                             } else if (f is DetailFragment) {
                                 appComponent.inject(f)
+                            } else if (f is GenreFragment) {
+                                appComponent.inject(f)
                             } else if (f is ShoppingCartFragment) {
                                 appComponent.inject(f)
                             }
@@ -66,6 +69,4 @@ class AppInjector {
                     }, true)
         }
     }
-
-
 }
