@@ -11,14 +11,20 @@ import javax.inject.Singleton
 class ShoppingCartRepository @Inject constructor(private val shoppingCartDao: ShoppingCartDao,
                                                  private val appExecutor: AppExecutor) {
 
-    fun insertItem(shoppingCartItem: ShoppingCartItem) {
+    fun insert(shoppingCartItem: ShoppingCartItem) {
         appExecutor.diskIO().execute {
             shoppingCartDao.insert(shoppingCartItem)
         }
     }
 
-    fun getAllShoppingCartItems() : LiveData<List<ShoppingCartItem>> {
+    fun getAll() : LiveData<List<ShoppingCartItem>> {
         return shoppingCartDao.loadAll()
+    }
+
+    fun delete(shoppingCartItem: ShoppingCartItem) {
+        appExecutor.diskIO().execute {
+            shoppingCartDao.delete(shoppingCartItem)
+        }
     }
 
     fun deleteAll() {
@@ -26,11 +32,4 @@ class ShoppingCartRepository @Inject constructor(private val shoppingCartDao: Sh
             shoppingCartDao.deleteAll()
         }
     }
-
-    fun deleteItem(shoppingCartItem: ShoppingCartItem) {
-        appExecutor.diskIO().execute {
-            shoppingCartDao.delete(shoppingCartItem)
-        }
-    }
-
 }

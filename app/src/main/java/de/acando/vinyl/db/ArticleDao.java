@@ -24,4 +24,7 @@ public interface ArticleDao {
 
     @Query("SELECT * FROM article_entries WHERE id IN (:itemIds)")
     LiveData<List<Article>> loadAll(List<Integer> itemIds);
+
+    @Query("DELETE FROM article_entries")
+    void deleteAll();
 }

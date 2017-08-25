@@ -15,4 +15,7 @@ interface GenreDao {
 
     @Query("SELECT * FROM genre_entries")
     fun loadAll(): LiveData<List<Genre>>
+
+    @Query("DELETE FROM genre_entries")
+    fun deleteAll()
 }
