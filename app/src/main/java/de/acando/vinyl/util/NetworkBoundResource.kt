@@ -4,6 +4,7 @@ import android.arch.lifecycle.LiveData
 import android.support.annotation.WorkerThread
 import android.arch.lifecycle.MediatorLiveData
 import android.support.annotation.MainThread
+import android.support.annotation.NonNull
 import android.support.annotation.Nullable
 import de.acando.vinyl.AppExecutor
 
@@ -61,7 +62,6 @@ abstract class NetworkBoundResource<ResultType> constructor(private val appExecu
     protected abstract fun loadData(): LiveData<ResultType>
 
     @MainThread
-    protected fun createCall(): LiveData<ResultType>? {
-        return null
-    }
+    @NonNull
+    protected abstract fun createCall(): LiveData<ResultType>
 }

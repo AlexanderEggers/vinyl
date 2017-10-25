@@ -2,18 +2,18 @@
 
 buildscript {
     ext {
-        gradleVersion = "3.0.0-beta3"
-        kotlinVersion = '1.1.4-3'
-        buildToolsVersion = "26.0.1"
+        gradleVersion = "3.0.0"
+        kotlinVersion = '1.1.51'
+        buildToolsVersion = "27.0.0"
 
-        espressoVersion = "3.0.0"
+        espressoVersion = "3.0.1"
         junitVersion = "4.12"
 
-        archLifecycleVersion = "1.0.0-alpha9"
-        archRoomVersion = "1.0.0-alpha9"
-        supportLibVersion = "26.0.2"
-        daggerVersion = "2.11"
-        gsonVersion = "2.8.1"
+        archLifecycleVersion = "1.0.0-rc1"
+        archRoomVersion = "1.0.0-rc1"
+        supportLibVersion = "27.0.0"
+        daggerVersion = "2.12"
+        gsonVersion = "2.8.2"
     }
 
     repositories {

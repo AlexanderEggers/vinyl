@@ -3,12 +3,12 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 27
     buildToolsVersion buildToolsVersion
     defaultConfig {
         applicationId "de.acando.vinyl"
         minSdkVersion 21
-        targetSdkVersion 26
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -69,9 +69,6 @@ dependencies {
     implementation "com.android.support:cardview-v7:$supportLibVersion"
 
     //LifeCycles, LiveData and ViewModel dependency
-    implementation("android.arch.lifecycle:runtime:$archLifecycleVersion", {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
     implementation "android.arch.lifecycle:extensions:$archLifecycleVersion"
     kapt "android.arch.lifecycle:compiler:$archLifecycleVersion"
 

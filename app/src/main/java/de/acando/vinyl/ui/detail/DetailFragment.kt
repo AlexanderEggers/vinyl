@@ -1,9 +1,9 @@
 package de.acando.vinyl.ui.detail
 
-import android.arch.lifecycle.LifecycleFragment
 import android.os.Bundle
+import android.support.v4.app.Fragment
 
-class DetailFragment : LifecycleFragment() {
+class DetailFragment : Fragment() {
 
     private val KEY_ITEM_ID = "itemID"
 
